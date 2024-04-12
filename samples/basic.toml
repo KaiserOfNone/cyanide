@@ -1,0 +1,8 @@
+alphabet = ["a", "b"]
+states = ["q1"]
+start_state = "q1"
+terminal_states = ["q1"]
+delta = [
+	[["q1", "a"], ["q1", "b", "RIGHT"]],
+	[["q1", "b"], ["q1", "a", "LEFT"]],
+]

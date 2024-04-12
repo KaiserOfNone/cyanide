@@ -6,6 +6,15 @@ class Direction(IntEnum):
     KEEP = 0
     RIGHT = 1
 
+def parse_direction(s: str) -> Direction:
+    if s == "LEFT":
+        return Direction.LEFT
+    if s == "KEEP":
+        return Direction.KEEP
+    if s == "RIGHT":
+        return Direction.RIGHT
+    raise Exception(f"Invalid name: {s}, should be LEFT KEEP or RIGHT")
+
 
 class TuringMachine:
     alphabet: set
@@ -30,6 +39,8 @@ class TuringMachine:
         self.terminal_states = terminal_states
         self.position = 0
         self.halted = False
+        if ribbon == "":
+            ribbon = " "
         self.ribbon = list(ribbon)
 
     def __iter__(self):
