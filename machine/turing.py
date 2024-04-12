@@ -53,7 +53,6 @@ class TuringMachine:
             return
         character: str = self.ribbon[self.position]
         change = self.delta.get((self.current_state, character))
-        print((self.current_state, character))
         if change is None:
             self.halted = True
             return
@@ -65,3 +64,9 @@ class TuringMachine:
         self.position += direction
         if self.position == -1:
             self.halted = True
+
+    def pretty_print(self):
+        p = self.get_ribbon()
+        p += '\n' + ' ' * self.position + '^'
+        p += '\n' + ' ' * self.position + self.current_state
+        return p

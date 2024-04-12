@@ -56,3 +56,20 @@ def test_prepend():
     for x in tm:
         print(x)
     assert tm.get_ribbon().strip() == '$abba'
+
+def test_pretty_print():
+    tm = TuringMachine(
+        alphabet=set(['a', 'b']),
+        states=set(['q1']),
+        delta={
+            ('q1', 'b'): ('q1', 'b', Direction.LEFT)
+        },
+        start_state='q1',
+        terminal_states=set(['q1']),
+        ribbon='abba'
+    )
+    expected = \
+'''abba
+^
+q1'''
+    assert tm.pretty_print() == expected
