@@ -1,9 +1,11 @@
 from enum import IntEnum
 
+
 class Direction(IntEnum):
     LEFT = -1
     KEEP = 0
     RIGHT = 1
+
 
 class TuringMachine:
     alphabet: set
@@ -40,13 +42,13 @@ class TuringMachine:
         return self.ribbon
 
     def extend_ribbon(self):
-        self.ribbon = self.ribbon + [' ']
+        self.ribbon = self.ribbon + [" "]
 
     def write(self, character):
         self.ribbon[self.position] = character
 
     def get_ribbon(self) -> str:
-        return ''.join(self.ribbon)
+        return "".join(self.ribbon)
 
     def next_step(self):
         if self.halted:
@@ -67,6 +69,6 @@ class TuringMachine:
 
     def pretty_print(self):
         p = self.get_ribbon()
-        p += '\n' + ' ' * self.position + '^'
-        p += '\n' + ' ' * self.position + self.current_state
+        p += "\n" + " " * self.position + "^"
+        p += "\n" + " " * self.position + self.current_state
         return p
